@@ -15,7 +15,18 @@ function getComputersChoice() {
 
 function humanChoice() {
   let userInput = prompt("User input:");
-  return userInput;
+  if (
+    userInput === "rock" ||
+    userInput === "ROCK" ||
+    userInput === "paper" ||
+    userInput === "PAPER" ||
+    userInput === "scissors" ||
+    userInput === "SCISSORS"
+  ) {
+    return userInput;
+  } else {
+    return console.log("invalid input");
+  }
 }
 
 function game() {
@@ -40,6 +51,6 @@ function game() {
   } else if (playerOne === "scissors" && computerChoice === "paper") {
     console.log("scissors wins");
   } else {
-    console.log("invalid input");
+    console.log("nobody wins");
   }
 }
