@@ -1,4 +1,5 @@
-console.log("hi");
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
 
 function getComputersChoice() {
   let cpuAnswer = Math.random();
@@ -32,14 +33,13 @@ function humanChoice() {
 let humanScore = 0;
 let cpuScore = 0;
 
-function playGame() {
+function playGame(playerChoice) {
   let n = 0;
-  while (n < 5) {
-    const player = humanChoice();
-    const cpu = getComputersChoice();
-    playRound(player, cpu);
-    n++;
-  }
+  const player = playerChoice;
+  const cpu = getComputersChoice();
+  playRound(player, cpu);
+  n++;
+
   if (humanScore > cpuScore) {
     console.log("player wins");
   } else if (humanScore < cpuScore) {
@@ -81,3 +81,20 @@ function playRound(playerOne, computerChoice) {
     console.log("nothing");
   }
 }
+
+rockButton.addEventListener("click", () => {
+  const humanChoice = "rock";
+  playGame(humanChoice);
+});
+
+paperButton.addEventListener("click", () => {
+  const humanChoice = "paper";
+  playGame(humanChoice);
+});
+
+const scissor = document.querySelector(".scissors");
+
+scissor.addEventListener("click", () => {
+  const humanChoice = "scissors";
+  playGame(humanChoice);
+});
