@@ -42,18 +42,20 @@ let humanScore = 0;
 let cpuScore = 0;
 
 function playGame(playerChoice) {
-  let n = 0;
   const player = playerChoice;
   const cpu = getComputersChoice();
   resultSpan.textContent = `CPU choose ${cpu}`;
   playRound(player, cpu);
-  n++;
+  if (humanScore >= 5) {
+    resultPara.textContent = `Human WINS!`;
+    (humanScore = 0), (cpuScore = 0);
+  } else if (cpuScore >= 5) {
+    resultPara.textContent = `CPU WINS!`;
+    (humanScore = 0), (cpuScore = 0);
+  }
 }
 
 function playRound(playerOne, computerChoice) {
-  console.log(
-    `player's choice ${playerOne} computer's choice ${computerChoice}`
-  );
   if (playerOne === computerChoice) {
     console.log("its a draw!!");
   } else if (playerOne === "rock" && computerChoice === "paper") {
